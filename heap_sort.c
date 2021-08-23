@@ -6,7 +6,7 @@
 /*   By: tsekiguc <tsekiguc@student.42tokyo.jp      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/23 16:01:19 by tsekiguc          #+#    #+#             */
-/*   Updated: 2021/08/23 22:31:06 by tsekiguc         ###   ########.fr       */
+/*   Updated: 2021/08/23 22:57:00 by tsekiguc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,8 @@ static void	make_heap(int *array, size_t size)
 	if (size == 1)
 		return ;
 
-	pos = ((size - 1) - 1) / 2;
-	flag = pos;
+	flag = ((size - 1) - 1) / 2;
+	pos = flag;
 	while (1)
 	{
 		child1 = pos * 2 + 1;
@@ -64,13 +64,7 @@ static void	make_heap(int *array, size_t size)
 			{
 				swap(&array[pos], &array[big]);
 				pos = big;
-			}
-			else
-			{
-				if (flag == 0)
-					break ;
-				flag -= 1;
-				pos = flag;
+				continue;
 			}
 		}
 		else if (child1 < size)
@@ -79,22 +73,13 @@ static void	make_heap(int *array, size_t size)
 			{
 				swap(&array[pos], &array[child1]);
 				pos = child1;
-			}
-			else
-			{
-				if (flag == 0)
-					break ;
-				flag -= 1;
-				pos = flag;
+				continue;
 			}
 		}
-		else
-		{
-			if (flag == 0)
-				break ;
-			flag -= 1;
-			pos = flag;
-		}
+		if (flag == 0)
+			break ;
+		flag -= 1;
+		pos = flag;
 	}
 }
 
@@ -106,15 +91,13 @@ int	heap_sort(int *array, size_t size)
 		return (1);
 	if (size == 1)
 		return (0);
-
 	make_heap(array, size);
-
 	i = size - 1;
 	while (i > 0)
 	 {
-		 swap(&array[0], &array[i]);
-		 make_heap(array, i);
-		 i--;
+		swap(&array[0], &array[i]);
+		make_heap(array, i);
+		i--;
 	 }
 	 return (0);
 }
