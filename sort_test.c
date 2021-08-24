@@ -6,7 +6,7 @@
 /*   By: tsekiguc <tsekiguc@student.42tokyo.jp      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/23 11:22:11 by tsekiguc          #+#    #+#             */
-/*   Updated: 2021/08/24 10:30:48 by tsekiguc         ###   ########.fr       */
+/*   Updated: 2021/08/24 15:08:18 by tsekiguc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ int	insert_sort(int *array, size_t size);
 int	selection_sort(int *array, size_t size);
 int	heap_sort(int *array, size_t size);
 int	merge_sort(int *array, size_t size);
+int	quick_sort(int *array, size_t size);
 
 static void array_put(int *array, size_t size)
 {
@@ -42,7 +43,8 @@ static void do_test(int *array, size_t size)
 	//insert_sort(array, size);
 	//selection_sort(array, size);
 	//heap_sort(array, size);
-	merge_sort(array, size);
+	//merge_sort(array, size);
+	quick_sort(array, size);
 	printf("After  :");
 	array_put(array, size);
 	printf("\n");
@@ -53,10 +55,10 @@ int main(void)
 	int	test0[] = {33, 42, 1, 6, 873, 4343, INT_MIN, INT_MAX, 477762};
 	int	test1[] = {9, 8, 7, 6, 5, 4, 3, 2, 1, 0};
 	int	test2[] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
-	int test3[] = {1};
+	int	test3[] = {1};
 	int	test4[] = {};
-	int test5[] = {42, 33};
-	int test6[] = {2021, 42, 33};
+	int	test5[] = {42, 33};
+	int	test6[] = {2021, 42, 33};
 
 	do_test(test0, (size_t)(sizeof(test0) / sizeof(test0[0])));
 	do_test(test1, (size_t)(sizeof(test1) / sizeof(test1[0])));
