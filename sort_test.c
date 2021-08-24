@@ -6,18 +6,20 @@
 /*   By: tsekiguc <tsekiguc@student.42tokyo.jp      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/23 11:22:11 by tsekiguc          #+#    #+#             */
-/*   Updated: 2021/08/23 21:38:03 by tsekiguc         ###   ########.fr       */
+/*   Updated: 2021/08/24 10:30:48 by tsekiguc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 #include <limits.h>
 
 int	bubble_sort(int *array, size_t size);
 int	insert_sort(int *array, size_t size);
 int	selection_sort(int *array, size_t size);
 int	heap_sort(int *array, size_t size);
+int	merge_sort(int *array, size_t size);
 
 static void array_put(int *array, size_t size)
 {
@@ -39,7 +41,8 @@ static void do_test(int *array, size_t size)
 	//bubble_sort(array, size);
 	//insert_sort(array, size);
 	//selection_sort(array, size);
-	heap_sort(array, size);
+	//heap_sort(array, size);
+	merge_sort(array, size);
 	printf("After  :");
 	array_put(array, size);
 	printf("\n");
@@ -62,6 +65,6 @@ int main(void)
 	do_test(test4, (size_t)(sizeof(test4) / sizeof(test4[0])));
 	do_test(test5, (size_t)(sizeof(test5) / sizeof(test5[0])));
 	do_test(test6, (size_t)(sizeof(test6) / sizeof(test6[0])));
-
+	//system("leaks a.out");
 	return (0);
 }
